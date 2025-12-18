@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Wordle Clone</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf6e3;
+    text-align: center;
+    padding: 20px;
+  }
+  h1 {
+    color: #333;
+  }
+  #board {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-gap: 5px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .cell {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    background-color: #fff;
+  }
+  .correct {
+    background-color: #6aaa64;
+    color: #fff;
+  }
+  .present {
+    background-color: #c9b458;
+    color: #fff;
+  }
+  .absent {
+    background-color: #787c7e;
+    color: #fff;
+  }
+  #inputRow {
+    margin-top: 10px;
+  }
+  #message {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #d73a49;
+  }
+/* my CSS for the header */
+    .standard {
+        border-radius: 5px;
+    }
+    .header {
+        top: 5px;
+        left: 718px;
+        right: 5px;
+        height: 44px;
+        background-color: #ABABAB;
+        position: absolute;
+        z-index: 100;
+    }
+    .headerlist {
+        display: flex;
+        list-style-type: none;
+        font-size: 27px;
+        margin: 5px 0px 5px 0px;
+    }
+    .headerlist li {
+        padding: 0px 10px;
+        margin: 0px 5px;
+        border: 2px solid black;
+    }
+    .subheader {
+    float: right;
+    padding-right: 5px;
+    }
+    .nav-link {
+        text-decoration: none;
+        color: black;
+    }
+    .nav-link:hover {
+        text-shadow: 0.8px 0 0 currentColor;
+    }
+</style>
+</head>
+<body>
+    <div class="standard header">
+        <span class="subheader">
+            <ul class="headerlist">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="resume.html" class="nav-link">Resume</a></li>
+                <li><a href="ballet.html" class="nav-link">Ballet</a></li>
+                <li><a href="webapp.html" class="nav-link">Application</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </span>
+    </div>
+<br><br><br>
+
+<h1>Werdle</h1>
+<p>A small "Wordle" clone created in collab with AI</p>
+
+<div id="board"></div>
+
+<div id="inputRow">
+  <input type="text" id="guessInput" maxlength="5" placeholder="Enter 5-letter word" autofocus>
+  <button onclick="checkGuess()">Guess</button>
+</div>
+
+<div id="message"></div>
+
+<script>
+const words = ["APPLE","BRAIN","CRANE","DREAM","PLANT"];
+const solution = words[Math.floor(Math.random() * words.length)];
+const maxGuesses = 6;
+let currentGuess = 0;
+
+const board = document.getElementById('board');
+const message = document.getElementById('message');
+
+// Initialize board
+for (let i = 0; i < maxGuesses * 5; i++) {
+  const cell = document.createElement('div');
+  cell.classList.add('cell');
+  board.appendChild(cell);
+}
+
+function checkGuess() {
+  const input = document.getElementById('guessInput');
+  let guess = input.value.toUpperCase();
+  if (guess.length !== 5) {
+    message.textContent = "Please enter a 5-letter word!";
+    return;
+  }
+  
+  message.textContent = "";
+  for (let i = 0; i < 5; i++) {
+    const cell = board.children[currentGuess * 5 + i];
+    cell.textContent = guess[i];
+    if (guess[i] === solution[i]) {
+      cell.classList.add('correct');
+    } else if (solution.includes(guess[i])) {
+      cell.classList.add('present');
+    } else {
+      cell.classList.add('absent');
+    }
+  }
+  
+  currentGuess++;
+  input.value = "";
+  
+  if (guess === solution) {
+    message.style.color = "#6aaa64";
+    message.textContent = "🎉 You guessed it! The word was " + solution + "!";
+    input.disabled = true;
+  } else if (currentGuess === maxGuesses) {
+    message.style.color = "#d73a49";
+    message.textContent = "Game over! The word was " + solution + ".";
+    input.disabled = true;
+  }
+}
+</script>
+
+</body>
+</html>

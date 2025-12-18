@@ -1,0 +1,109 @@
+body {
+    background-color: #212121;
+    margin: 0;
+    padding: 0;
+}
+.title {
+    top: 5px;
+    left: 5px;
+    height: 44px;
+    width: 728px;
+    background-color: #ABABAB;
+    position: absolute;
+}
+.title h1 {
+    margin: 3px 5px 3px 5px;
+}
+.header {
+    top: 5px;
+    left: 738px;
+    right: 5px;
+    height: 44px;
+    background-color: #ABABAB;
+    position: fixed;
+    z-index: 100;
+}
+
+.headerlist {
+    display: flex;
+    list-style-type: none;
+    font-size: 27px;
+    margin: 5px 0px 5px 0px;
+}
+.headerlist li {
+    padding: 0px 10px;
+    margin: 0px 5px;
+    border: 2px solid black;
+}
+.subheader {
+    float: right;
+    padding-right: 5px;
+}
+.nav-link {
+    text-decoration: none;
+    color: black;
+}
+.nav-link:hover {
+    text-shadow: 0.8px 0 0 currentColor;
+}
+.main {
+    top: 54px;
+    left: 5px;
+    right: 5px;
+    height: 2110px;
+    background-color: #CCCCCC;
+    position: absolute;
+    z-index: 5;
+    padding: 0 10px 0 10px;
+}
+.main p {
+    font-size: 21px;
+}
+.main img {
+    width: 500px;
+    margin: 10px 15px 10px 15px;
+}
+.ol-li {
+    font-size: 20px;
+}
+.ul-li {
+    font-size: 17px;
+}
+.standard {
+    border-radius: 5px;
+}
+.tableauPlaceholder {
+    max-width: 1250px;
+    max-height: 680px;
+    margin: 0 auto;
+}
+iframe {
+    z-index: 1000;
+    position: relative;
+}
+.YT-embed{
+    aspect-ratio: 16/9;
+    max-width: 800px;
+    margin: 2rem;
+}
+.YT-embed iframe {
+  width: 100%;
+  height: 100%;
+}
+.BTT-list {
+    display: flex;
+    list-style-type: none;
+    margin-top: 0;
+}
+.BTT-list li {
+    border: 2px solid black;
+    padding: 2px 5px;
+    font-size: 20px;
+}
+.topholder {
+    top:0px;
+    left:0px;
+    margin-top: 0;
+    padding-top: 0;
+    scroll-margin-top: 0;
+}

@@ -1,0 +1,23 @@
+.contactlink {
+    color: teal;
+}
+.contactlink:hover {
+    text-shadow: 1px 0 0 currentColor;
+}
+.contactlink:visited {
+    color: maroon;
+}
+.resumehead {
+    font-weight: bold;
+}
+.resumelead {
+    margin-bottom: 5px;
+    margin-top: 13px;
+}
+.resumelist {
+    font-size: 18px;
+}
+
+.resumesub {
+    font-style: italic;
+}
